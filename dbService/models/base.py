@@ -1,7 +1,7 @@
 from peewee import Model, SqliteDatabase
 
 
-db = SqliteDatabase("../bot_data.db")
+db = SqliteDatabase("csgo_compendium_bot.db")
 
 
 class BaseModel(Model):

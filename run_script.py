@@ -1,31 +1,8 @@
-import os
-import logging
-
-from aiogram import Bot, Dispatcher, types
-from aiogram.utils.executor import Executor
-from aiogram.contrib.fsm_storage.memory import MemoryStorage
-from aiogram import Dispatcher
-
 from dbService.helper import create_tables
+from bot.handlers import commands, messages, callbacks
 
-# Getting envs
-API_TOKEN = os.getenv("API_TOKEN")
-
-# Configuring logging and storage
-logging.basicConfig(level=logging.DEBUG)
-
-storage = MemoryStorage()
-
-
-displayed_commands = [
-    types.BotCommand(command="/help", description="Список доступынх команд"),
-
-]
-
-# Initialize bot and dispatcher
-bot = Bot(token=API_TOKEN)
-dp = Dispatcher(bot, storage=storage)
-executor = Executor(dp, skip_updates=True)
+from aiogram import Dispatcher
+from config import dp, displayed_commands, bot, executor
 
 
 async def on_startup(dispatcher: Dispatcher):
