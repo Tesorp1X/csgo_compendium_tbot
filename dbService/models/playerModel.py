@@ -1,6 +1,7 @@
-from peewee import IntegerField, CharField, FloatField
+from peewee import IntegerField, CharField, FloatField, ForeignKeyField
 
 from dbService.models.base import BaseModel
+from dbService.models.teamModel import TeamModel
 
 
 class PlayerModel(BaseModel):
@@ -10,7 +11,7 @@ class PlayerModel(BaseModel):
 
     hltv_profile = CharField(max_length=64)
 
-    # team
+    team = ForeignKeyField(TeamModel)
 
     maps_played = IntegerField(default=0)
 
