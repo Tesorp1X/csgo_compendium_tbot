@@ -8,7 +8,6 @@ from dbService.pickEmService import get_user, add_new_user
 
 @dp.message_handler(commands="start", state="*")
 async def welcome_handler(message: Message):
-    print("puk")
     user = get_user(message.from_user.id)
 
     if not user:
