@@ -16,3 +16,6 @@ class PlayerModel(BaseModel):
     maps_played = IntegerField(default=0)
 
     rating = FloatField(default=0)
+
+    class Meta:
+        db_table = 'Players'

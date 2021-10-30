@@ -16,6 +16,10 @@ class TeamModel(BaseModel):
 
     round_diff = IntegerField(default=0)
 
-    q_status = CharField(max_length=4, choices=(('q', 'Qualified'),
-                                                ('n', 'Not Qualified'),
-                                                ('tbd', 'TBD')))
+    status = CharField(max_length=4, choices=(('legend', 'legend'),
+                                              ('play-off', 'Play-off'),
+                                              ('champion', 'Champion')),
+                       default='legend')
+
+    class Meta:
+        db_table = 'Teams'

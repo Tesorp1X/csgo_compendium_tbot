@@ -1,8 +1,7 @@
-from dbService.helper import create_tables
-from bot.handlers import commands, messages, callbacks
-
 from aiogram import Dispatcher
 from config import dp, displayed_commands, bot, executor
+from dbService.helper import create_tables
+from bot.handlers import commands, messages
 
 
 async def on_startup(dispatcher: Dispatcher):

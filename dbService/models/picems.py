@@ -12,23 +12,26 @@ class BasePickEmModel(BaseModel):
 
 
 class TeamsPickEmModel(BasePickEmModel):
-    team1 = ForeignKeyField(TeamModel)
+    best_team = ForeignKeyField(TeamModel)  # best
 
-    team2 = ForeignKeyField(TeamModel)
+    team2 = ForeignKeyField(TeamModel)  # top-7
 
-    team3 = ForeignKeyField(TeamModel)
+    team3 = ForeignKeyField(TeamModel)  # top-7
 
-    team4 = ForeignKeyField(TeamModel)
+    team4 = ForeignKeyField(TeamModel)  # top-7
 
-    team5 = ForeignKeyField(TeamModel)
+    team5 = ForeignKeyField(TeamModel)  # top-7
 
-    team6 = ForeignKeyField(TeamModel)
+    team6 = ForeignKeyField(TeamModel)  # top-7
 
-    team7 = ForeignKeyField(TeamModel)
+    team7 = ForeignKeyField(TeamModel)  # top-7
 
-    team8 = ForeignKeyField(TeamModel)
+    team8 = ForeignKeyField(TeamModel)  # top-7
 
-    team9 = ForeignKeyField(TeamModel)
+    worst_team = ForeignKeyField(TeamModel)  # worst
+
+    class Meta:
+        db_table = 'PickEm'
 
 
 class Top5PickEmModel(BasePickEmModel):
@@ -41,6 +44,9 @@ class Top5PickEmModel(BasePickEmModel):
     player4 = ForeignKeyField(PlayerModel)
 
     player5 = ForeignKeyField(PlayerModel)
+
+    class Meta:
+        db_table = 'Top5PickEm'
 
 
 class MapsPickEmModel(BasePickEmModel):

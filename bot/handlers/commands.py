@@ -4,6 +4,7 @@ from aiogram.dispatcher import FSMContext
 from run_script import dp
 from bot.states import RegistrationStates
 from dbService.pickEmService import get_user, add_new_user
+from bot.keyboards.inline import get_main_menu_inline_kb
 
 
 @dp.message_handler(commands="start", state="*")
@@ -14,8 +15,8 @@ async def welcome_handler(message: Message):
         await message.answer("Привет. Нужно пройти очень короткую регистрацию. Напиши свой ник.")
         await RegistrationStates.waiting_for_name.set()
         return
-
-    await message.answer("Привет, уже знакомы.")
+    message_text = "CSGO Compendium: PGL Major Stockholm 2021 Legends Stage\nГлавное меню."
+    await message.answer(message_text, reply_markup=get_main_menu_inline_kb())
 
 
 @dp.message_handler(state=RegistrationStates.waiting_for_name)
@@ -25,4 +26,4 @@ async def complete_register(message: Message, state: FSMContext):
 
     add_new_user(t_id, name)
 
-    await message.answer("Добро пожаловать в PGL CSGO Major 2021 Compendium!")
+    await message.answer("Добро пожаловать в PGL CSGO Major 2021 Compendium!", reply_markup=get_main_menu_inline_kb())

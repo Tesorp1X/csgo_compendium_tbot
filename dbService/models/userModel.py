@@ -11,3 +11,6 @@ class UserModel(BaseModel):
     points = IntegerField(default=0)
 
     rank_to_date = IntegerField(default=1)
+
+    class Meta:
+        db_table = 'Users'

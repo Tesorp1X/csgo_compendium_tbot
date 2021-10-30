@@ -22,8 +22,14 @@ class EventsModel(BaseModel):
 
     biggest_rd = IntegerField(default=0)
 
+    class Meta:
+        db_table = 'Events'
+
 
 class MapsModel(BaseModel):
     name = CharField(max_length=16)
 
     times_played = IntegerField(default=0)
+
+    class Meta:
+        db_table = 'Maps'
